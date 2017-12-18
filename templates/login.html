@@ -1,0 +1,53 @@
+{% extends "blog_template.html" %}
+{% block body %}
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'>
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  	<li ><a href="/">Home</a>
+							<!--<ul>-->
+	                     <!--<li><a href="blog.html">Blog Entries</a></li>-->
+	                     <!--<li><a href="single.html">Single Blog</a></li>-->
+	                  <!--</ul>-->
+			      	</li>
+			      	<li class="has-children current"><a href="/login">Login</a></li>
+			   	</ul> <!-- end #nav -->
+
+	   	</div>
+
+	   </nav> <!-- end #nav-wrap -->
+
+   </header> <!-- Header End -->
+
+   <!-- Content
+   ================================================== -->
+   <div id="content-wrap">
+
+   	<div class="row">
+
+   		<div id="main" class="eight columns">
+<article class="entry">
+    <div class="form">
+        <form class="register-form" action="{{ url_for('signup') }}" method=post>
+            <input type="text" placeholder="name" name="cusername"/>
+            <input type="password" placeholder="password" name="cpassword"/>
+            <input type="text" placeholder="email address" name="cemail"/>
+            <button>create</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form>
+        <form class="login-form" action="{{ url_for('login') }}" method=post>
+            <input type="text" placeholder="username" name="username"/>
+            <input type="password" placeholder="password" name="password"/>
+            <button>login</button>
+            <p class="message" font-size="2px">Not registered? <a href="#">Sign Up</a></p>
+        </form>
+    </div>
+
+</article> <!-- end entry -->
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}
+

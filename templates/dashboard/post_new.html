@@ -1,0 +1,44 @@
+{% extends "template.html" %}
+{% block body %}
+<!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/admin/post">Post</a></li>
+            <li class="breadcrumb-item active">Post: New</a></li>
+
+        </ol>
+
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i> Articles | <a href="/admin/post/new" >Add New </a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        </thead>
+                        <tbody>
+                        <form action="/admin/post/new" method=post>
+                            <div><span>Title </span><span><input type="text" name="title" ></span></div>
+                            <div><span>Visibility</span>
+                                <select name="visi" width="20px">
+                                    <option selected="selected">Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </span></div>
+                            <div><span>Category </span><span><input type="text" name="category" ></span></div>
+                            <div><span>Content </span><span><textarea rows="4" cols="50" name="content"></textarea></div>
+                            <div><span><input type="submit" value="Add"></div>
+                        </form>
+                        {% for blog in blog %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted"><i class="fa fa-table"></i> Articles | <a href="/admin/post/new" >Add New </a></div>
+        </div>
+
+
+
+{% endblock %}

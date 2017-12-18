@@ -1,0 +1,62 @@
+{% extends "blog_template.html" %}
+{% block body %}
+  	<li class="has-children current"><a href="/">Home</a>
+							<!--<ul>-->
+	                     <!--<li><a href="blog.html">Blog Entries</a></li>-->
+	                     <!--<li><a href="single.html">Single Blog</a></li>-->
+	                  <!--</ul>-->
+			      	</li>
+			      	<li><a href="/login">Login</a></li>
+			   	</ul> <!-- end #nav -->
+
+	   	</div>
+
+	   </nav> <!-- end #nav-wrap -->
+
+   </header> <!-- Header End -->
+
+   <!-- Content
+   ================================================== -->
+   <div id="content-wrap">
+
+   	<div class="row">
+
+   		<div id="main" class="eight columns">
+{% for blog in blogger %}
+<article class="entry">
+
+    <header class="entry-header">
+
+        <h2 class="entry-title">
+            <a href="/admin/{{ blog.title}}" > {{ blog.title }} </a>
+        </h2>
+
+        <div class="entry-meta">
+            <ul>
+                <li>Created: {{ blog.created }}</li>
+                <span class="meta-sep">&bull;</span>
+                <li><a href="#" title="" rel="category tag">Author:{{ blog.author }}</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+    <div class="entry-content">
+        <p>
+            {{ blog.body |safe }}</p>
+    </div>
+
+</article> <!-- end entry -->
+{% endfor %}
+
+
+<div class="pagenav">
+    <p>
+        <a rel="prev" href="#">Prev</a>
+        <a rel="next" href="#">Next</a>
+    </p>
+</div>
+
+
+{% endblock %}
+
